@@ -14,35 +14,39 @@ link_directories(${NPCAP_LIB})
 add_executable(npcap_examples main.cpp)
 target_link_libraries(npcap_examples Packet.lib wpcap.lib)
 
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
 add_executable(pcap_basic_dump ${PCAP_SRC}/basic_dump/basic_dump.c)
 target_link_libraries(pcap_basic_dump Packet.lib wpcap.lib)
 
 add_executable(pcap_basic_dump_ex ${PCAP_SRC}/basic_dump_ex/basic_dump_ex.c)
 target_link_libraries(pcap_basic_dump_ex Packet.lib wpcap.lib)
-
 add_executable(pcap_iflist ${PCAP_SRC}/iflist/iflist.c)
 target_link_libraries(pcap_iflist Packet.lib wpcap.lib)
-
 add_executable(pcap_pcap_filter ${PCAP_SRC}/pcap_filter/pcap_filter.c)
 target_link_libraries(pcap_pcap_filter Packet.lib wpcap.lib)
-
 add_executable(pcap_pktdump_ex ${PCAP_SRC}/pktdump_ex/pktdump_ex.c)
 target_link_libraries(pcap_pktdump_ex Packet.lib wpcap.lib)
-
 add_executable(pcap_readfile ${PCAP_SRC}/readfile/readfile.c)
 target_link_libraries(pcap_readfile Packet.lib wpcap.lib)
-
 add_executable(pcap_readfile_ex ${PCAP_SRC}/readfile_ex/readfile_ex.c)
 target_link_libraries(pcap_readfile_ex Packet.lib wpcap.lib)
-
 add_executable(pcap_savedump ${PCAP_SRC}/savedump/savedump.c)
 target_link_libraries(pcap_savedump Packet.lib wpcap.lib)
-
 add_executable(pcap_sendpack ${PCAP_SRC}/sendpack/sendpack.c)
 target_link_libraries(pcap_basic_dump_ex Packet.lib wpcap.lib)
-
 add_executable(pcap_UDPdump ${PCAP_SRC}/UDPdump/UDPdump.c)
 target_link_libraries(pcap_UDPdump Packet.lib wpcap.lib)
+
+set_property(TARGET pcap_basic_dump_ex PROPERTY FOLDER "pcap")
+set_property(TARGET pcap_iflist PROPERTY FOLDER "pcap")
+set_property(TARGET pcap_pcap_filter PROPERTY FOLDER "pcap")
+set_property(TARGET pcap_pktdump_ex PROPERTY FOLDER "pcap")
+set_property(TARGET pcap_readfile PROPERTY FOLDER "pcap")
+set_property(TARGET pcap_readfile_ex PROPERTY FOLDER "pcap")
+set_property(TARGET pcap_savedump PROPERTY FOLDER "pcap")
+set_property(TARGET pcap_sendpack PROPERTY FOLDER "pcap")
+set_property(TARGET pcap_UDPdump PROPERTY FOLDER "pcap")
 
 add_executable(remote_iflist ${REMOTE_SRC}/iflist/iflist.c)
 target_link_libraries(remote_iflist Packet.lib wpcap.lib)
