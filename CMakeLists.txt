@@ -42,7 +42,7 @@ add_executable(pcap_sendpack ${PCAP_SRC}/sendpack/sendpack.c)
 target_link_libraries(pcap_basic_dump_ex Packet.lib wpcap.lib)
 
 add_executable(pcap_UDPdump ${PCAP_SRC}/UDPdump/UDPdump.c)
-target_link_libraries(pcap_UDPdump Packet.lib wpcap.lib)
+target_link_libraries(pcap_UDPdump Packet.lib wpcap.lib ws2_32.lib)
 
 add_executable(remote_iflist ${REMOTE_SRC}/iflist/iflist.c)
 target_link_libraries(remote_iflist Packet.lib wpcap.lib)
